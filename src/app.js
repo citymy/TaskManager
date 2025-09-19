@@ -16,7 +16,10 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(helmet());
-app.use(cors());  //{ origin: 'http://localhost:3001' }
+app.use(cors({
+  origin: [process.env.API_BASE_URL, process.env.FRONT_BASE_URL],
+  credentials: true
+}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
