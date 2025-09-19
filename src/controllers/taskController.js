@@ -175,7 +175,7 @@ const updateTask = async (req, res, next) => {
     const { id } = req.params;
     const { title, description, status, dueDate } = req.body;
 
-    console.log(123, id);
+    //console.log(123, id);
 
     const task = await Task.findByPk(id);
 
@@ -193,7 +193,7 @@ const updateTask = async (req, res, next) => {
     if (status !== undefined) updateData.status = status;
     if (dueDate !== undefined) updateData.due_date = dueDate;
 
-    console.log(333, updateData);
+    //console.log(333, updateData);
     await task.update(updateData);
 
     // Clear cache when task is updated
