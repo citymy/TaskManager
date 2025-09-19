@@ -51,7 +51,7 @@ services:
       - "5050:80"
   frontend:
     build:
-      context: .
+      context: ./frontend
       dockerfile: "${DOCKERFILE_FRONT}"
     ports:
       - "${PORT_FRONTEND}:${PORT_FRONTEND}"
@@ -65,7 +65,6 @@ services:
       - ./frontend:/app
       - /app/node_modules
       - /app/.nuxt
-    command: sh
 volumes:
   postgres_data:
   redis_data:
