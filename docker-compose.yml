@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   app:
     build:
@@ -9,7 +8,7 @@ services:
       - "${PORT}:${PORT}"
     env_file: .env
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=${NODE_ENV}
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_NAME=taskmanager
