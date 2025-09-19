@@ -7,11 +7,15 @@ COPY frontend/package*.json ./
 
 RUN npm ci #--only=production
 
+RUN echo "Hello from Dockerfile"
+
 COPY frontend ./
+
+RUN ls -la
 
 RUN npm run build
 
 EXPOSE 3001
 
 CMD ["npm", "start"]
-
+#CMD ["tail", "-f", "/dev/null"]
