@@ -61,7 +61,7 @@ async function startServer() {
     await initRedis();
     logger.info('Redis connection established successfully');
 
-    app.listen(PORT, '0.0.0.0', () => {
+    app.listen(PORT, ${process.env.HOST}, () => {
       logger.info(`Server running on port ${PORT}`);
       logger.info(`Environment: ${process.env.NODE_ENV}`);
     });
