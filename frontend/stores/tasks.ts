@@ -36,7 +36,10 @@ export const useTaskStore = defineStore('tasks', () => {
             if (filters.sortOrder) query.append('sortOrder', filters.sortOrder);
 
             const url = `${config.public.apiBaseUrl}/api/tasks${query.toString() ? `?${query.toString()}` : ''}`;
+            console.log('URL:', config.public.apiBaseUrl, url);
+
             const data = await $fetch<Task[]>(url);
+
 
             /*if(data && data.data && Array.isArray(data.data)){
                 data.data = data.data.map(row => ({
