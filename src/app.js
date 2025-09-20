@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 
+console.log('Start');
 const { sequelize } = require('./config/database');
 
 console.log('Start');
