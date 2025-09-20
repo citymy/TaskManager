@@ -3,5 +3,3 @@ node_modules
 .output
 .git
 .gitignore
-docker-compose.yml
-Dockerfile
