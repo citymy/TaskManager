@@ -3,11 +3,11 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --host 0.0.0.0 --port 3001",
+    "dev": "nuxt dev --host 0.0.0.0 --port 3000",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "start": "node .output/server/index.mjs --host 0.0.0.0 --port 3001"
+    "start": "node ./.output/server/index.mjs --host 0.0.0.0 --port 3000"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

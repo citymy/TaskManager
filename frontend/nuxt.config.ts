@@ -24,7 +24,7 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         public: {
-            apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:3000'
+            apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:3001'
         }
     },
     vite: {
@@ -42,8 +42,9 @@ export default defineNuxtConfig({
     },
     devServer: {
         host: '0.0.0.0',
-        port: 3001
+        port: 3000
     },
     ssr: true
 
 })
+

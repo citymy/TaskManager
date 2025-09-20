@@ -6,13 +6,14 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const { sequelize } = require('./config/database');
+//prizma const { prisma } = require('./config/database_prizma');
 const { initRedis } = require('./config/redis');
 const taskRoutes = require('./routes/taskRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const logger = require('./utils/logger');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT_API || 3001;
 
 // Middleware
 app.use(helmet());
@@ -51,7 +52,9 @@ app.use('*', (req, res) => {
 
 
 app.use(errorHandler);
-
+/*process.on('beforeExit', async () => {
+  await prisma.$disconnect();
+});*/
 
 async function startServer() {
   try {
