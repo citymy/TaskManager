@@ -10,10 +10,10 @@
     "start": "node ./.output/server/index.mjs --host 0.0.0.0 --port 3000"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "nuxt": "^3.8.0"
+    "@nuxt/devtools": "latest"
   },
   "dependencies": {
+    "nuxt": "^3.8.0",
     "@mdi/font": "^7.4.47",
     "@nuxtjs/google-fonts": "^3.0.2",
     "@pinia/nuxt": "^0.5.1",
