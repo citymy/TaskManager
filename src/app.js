@@ -6,6 +6,10 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const { sequelize } = require('./config/database');
+
+console.log('Start');
+console.log(sequelize);
+
 //prizma const { prisma } = require('./config/database_prizma');
 const { initRedis } = require('./config/redis');
 const taskRoutes = require('./routes/taskRoutes');
