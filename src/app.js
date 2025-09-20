@@ -5,14 +5,13 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 
-console.log('Start');
+console.log('Start 111');
 const { sequelize } = require('./config/database');
-
-console.log('Start');
-console.log(sequelize);
 
 //prizma const { prisma } = require('./config/database_prizma');
 const { initRedis } = require('./config/redis');
+
+console.log('Start 222');
 const taskRoutes = require('./routes/taskRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const logger = require('./utils/logger');
