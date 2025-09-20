@@ -8,10 +8,9 @@ const helmet = require('helmet');
 console.log('Start 111');
 const { sequelize } = require('./config/database');
 
-//prizma const { prisma } = require('./config/database_prizma');
+//prizma const { prisma } = require('./config/databasePrizma');
 const { initRedis } = require('./config/redis');
 
-console.log('Start 222');
 const taskRoutes = require('./routes/taskRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const logger = require('./utils/logger');
