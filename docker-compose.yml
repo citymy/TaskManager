@@ -1,4 +1,32 @@
 services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis_data:/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: taskmanager1-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    ports:
+      - "5050:80"
+
   app:
     build:
       context: .
@@ -20,33 +48,7 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-    restart: always
-  postgres:
-    image: postgres:15-alpine
-    environment:
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-    ports:
-      - "127.0.0.1:5433:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./database:/docker-entrypoint-initdb.d
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "127.0.0.1:6379:6379"
-    volumes:
-      - redis_data:/data
 
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: taskmanager1-pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
-    ports:
-      - "5050:80"
   frontend:
     build:
       context: ./frontend
